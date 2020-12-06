@@ -35,8 +35,9 @@
             @Html.DisplayFor(modelItem => item.Age)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditUser", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "DeleteUser", new { id=item.ID })
+            @Html.ActionLink("Edit", "EditUser", new { id = item.ID }) |
+            @Html.ActionLink("Show awards", "ShowUserAwards", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "DeleteUser", new { id = item.ID })
         </td>
     </tr>
 }

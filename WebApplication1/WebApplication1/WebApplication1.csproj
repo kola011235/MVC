@@ -130,6 +130,7 @@
     <Compile Include="BLL\UserAwardRelationLogic.cs" />
     <Compile Include="BLL\UserLogic.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AwardController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\AwardDAO.cs" />
     <Compile Include="DAL\IAwardDAO.cs" />
@@ -142,6 +143,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AwardModel.cs" />
+    <Compile Include="Util\CorrectAgeAttribute.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\NinjectRegistrations.cs" />
@@ -179,17 +182,20 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\AddUser.cshtml" />
     <Content Include="Views\User\EditUser.cshtml" />
     <Content Include="Views\User\DeleteUser.cshtml" />
+    <Content Include="Views\Award\Index.cshtml" />
+    <Content Include="Views\Award\AddAward.cshtml" />
+    <Content Include="Views\Award\EditAward.cshtml" />
+    <Content Include="Views\Award\DeleteAward.cshtml" />
+    <Content Include="Views\User\ShowUserAwards.cshtml" />
+    <Content Include="Views\User\ShowPotentialUserAwards.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

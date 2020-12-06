@@ -18,6 +18,7 @@ namespace WebApplication1.Models
         public DateTime DateIfBirth { get; set; }
         [Display(Name = "Age")]
         [Range(0,100,ErrorMessage = "You must enter a valid age")]
+        [CorrectAge(ErrorMessage ="Age and date doesn't match")]
         public int Age { get; set; }
     }
 }

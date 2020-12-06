@@ -5,15 +5,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using task_3_DB.BLL;
+using task_3_DB.Entities;
 using task_3_DB.Util;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    [HandleError]
     public class UserController : Controller
     {
         static IKernel ninjectKernel = new StandardKernel(new NinjectRegistrations());
         static IUserLogic userLogic = ninjectKernel.Get<IUserLogic>();
+        static IAwardLogic awardLogic = ninjectKernel.Get<IAwardLogic>();
+        static IUserAwardRelationLogic userAndAwardLogic = ninjectKernel.Get<IUserAwardRelationLogic>();
         public ActionResult Index()
         {
             ViewBag.Message = "User List";
@@ -99,6 +103,46 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+        public ActionResult ShowUserAwards(int id)
+        {
+            ViewBag.User = userLogic.GetUserByID(id);
+            var listOfEntities = userAndAwardLogic.GetAwardsOfUserByID(id);
+            List<AwardModel> listOfModels = new List<AwardModel>();
+            foreach (var item in listOfEntities)
+            {
+                listOfModels.Add(new AwardModel
+                {
+                    ID = item.ID,
+                    Title = item.Title
+                });
+            }
+            return View(listOfModels);
+        }
+        public ActionResult ShowPotentialUserAwards(int id)
+        {
+            ViewBag.User = userLogic.GetUserByID(id);
+            List<Award> listOfEntities = (List<Award>)awardLogic.GetAllAwards();
+            List<Award> alreadyAwarded = (List<Award>)userAndAwardLogic.GetAwardsOfUserByID(id);
+            List<AwardModel> listOfModels = new List<AwardModel>();
+            foreach (var item in listOfEntities)
+            {
+                if (alreadyAwarded.Find(x=>x.ID==item.ID)==null)
+                {
+                    listOfModels.Add(new AwardModel
+                    {
+                        ID = item.ID,
+                        Title = item.Title
+                    });
+                }
+                
+            }
+            return View(listOfModels);
+        }
+        public ActionResult AddAwardToUser(int awardID, int userID)
+        {
+            userAndAwardLogic.AwardUsers(awardID, new List<int>(){ userID});
+            return RedirectToAction("ShowUserAwards",new { id = userID });
         }
     }
 }

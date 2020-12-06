@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WebApplication1.Models.AwardModel>
+
+@{
+    ViewBag.Title = "ShowPotentialUserAwards";
+}
+
+<h2>choose an award to add:</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Add this", "AddAwardToUser", new { awardID=item.ID, userID = ViewBag.User.ID }) 
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Back to User List", "Index")
+</div>
