@@ -1,0 +1,3 @@
+﻿CREATE PROCEDURE GetAllAwards
+as
+SELECT * FROM Awards

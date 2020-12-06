@@ -1,0 +1,4 @@
+﻿
+CREATE PROCEDURE DeleteAwardByID @ID int
+AS
+DELETE FROM Awards WHERE ID = @ID

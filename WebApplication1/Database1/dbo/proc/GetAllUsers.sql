@@ -1,0 +1,3 @@
+﻿CREATE PROCEDURE GetAllUsers
+as
+SELECT * FROM Users

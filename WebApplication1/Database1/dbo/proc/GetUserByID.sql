@@ -1,0 +1,3 @@
+﻿CREATE PROCEDURE GetUserByID @ID int
+AS
+SELECT * FROM Users WHERE ID = @ID

@@ -1,0 +1,3 @@
+﻿CREATE PROCEDURE GetAwardsOfUserByID @ID int
+AS
+SELECT * FROM Awarded INNER JOIN Awards ON AwardID = ID WHERE UserID = @ID

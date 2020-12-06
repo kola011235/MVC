@@ -1,0 +1,3 @@
+﻿CREATE PROCEDURE DeleteUserByID @ID int
+AS
+DELETE FROM Users WHERE ID = @ID

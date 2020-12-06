@@ -1,0 +1,31 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Awarded] (Table)
+       [dbo].[Awards] (Table)
+       [dbo].[Users] (Table)
+       [dbo].[FK_Awarded_Users] (Foreign Key)
+       [dbo].[FK_Awarded_Awards] (Foreign Key)
+       [dbo].[AddAward] (Procedure)
+       [dbo].[AddUser] (Procedure)
+       [dbo].[AwardUsers] (Procedure)
+       [dbo].[DeleteAwardByID] (Procedure)
+       [dbo].[DeleteUserByID] (Procedure)
+       [dbo].[GetAllAwards] (Procedure)
+       [dbo].[GetAllUsers] (Procedure)
+       [dbo].[GetAwardByID] (Procedure)
+       [dbo].[GetAwardsOfUserByID] (Procedure)
+       [dbo].[GetUserByID] (Procedure)
+       [dbo].[UpdateAward] (Procedure)
+       [dbo].[UpdateUser] (Procedure)
+
+** Supporting actions
